@@ -1,0 +1,27 @@
+﻿@model IEnumerable<LTrinhWebNhom3.Models.Tag>
+
+<h2>Tags</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tag in Model)
+        {
+            <tr>
+                <td>@tag.Id</td>
+                <td>@tag.TagName</td>
+                <td>@tag.Description</td>
+                <td>
+                 
+                </td>
+            </tr>
+        }
+        <a class="btn-light" href="Add">Add</a>
+    </tbody>
+</table>

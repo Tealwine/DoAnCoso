@@ -1,0 +1,29 @@
+﻿@model IEnumerable<LTrinhWebNhom3.Models.Tag>
+
+<h2>Tags</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tag in Model)
+        {
+            <tr>
+                <td>@tag.Id</td>
+                <td>@tag.TagName</td>
+                <td>@tag.Description</td>
+                <td>
+                    <a class="btn btn-warning" asp-action="Display" asp-route-id="@tag.Id">View</a> |
+                    <a class="btn btn-success" asp-action="Update" asp-route-id="@tag.Id">Edit</a> |
+                    <a class="btn btn-success" asp-action="Delete" asp-route-id="@tag.Id">Delete</a>
+                </td>
+            </tr>
+        }
+        <a class="btn-light" href="Add">Add</a>
+    </tbody>
+</table>

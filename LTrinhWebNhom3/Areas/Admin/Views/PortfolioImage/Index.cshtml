@@ -1,0 +1,47 @@
+﻿@model IEnumerable<LTrinhWebNhom3.Models.PortfolioImage>
+
+
+<h2>Image</h2>
+
+
+<div class="container mt-4">
+    <div class="row">
+        <!-- Danh sách sản phẩm -->
+        <div class="col-md-9">
+            <!-- Hiển thị sản phẩm bằng dạng dòng sản phẩm sử dụng Bootstrap Row và Col -->
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+
+
+                @foreach (var portfolioImage in Model)
+                {
+                    <!-- Sản phẩm -->
+                    <div class="col">
+                        <div class="card">
+                            <img src="@portfolioImage.ImageURL" class="card-img-top" alt="..." style="max-height:135px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Name: <strong>@portfolioImage.Portfolio.Name</strong></h5>
+
+                                <a href="/Admin/PortfolioImage/Display/@(portfolioImage.Id)" class="btn btn-warning">View</a>
+                                <a href="/Admin/PortfolioImage/Update/@(portfolioImage.Id)" class="btn btn-success">Update</a>
+                                <a href="/Admin/PortfolioImage/Delete/@(portfolioImage.Id)" class="btn btn-dark">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+        </div>
+        <!-- Sidebar -->
+        <div class="col-md-3">
+            <div class="bg-primary text-white p-3">
+                <h5>Social Media</h5>
+                <ul class="list-unstyled">
+                    <li><a class="text-white" href="#">Facebook</a></li>
+                    <li><a class="text-white" href="#">Twitter</a></li>
+                    <li><a class="text-white" href="#">Instagram</a></li>
+                    <li><a class="text-white" href="#">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
