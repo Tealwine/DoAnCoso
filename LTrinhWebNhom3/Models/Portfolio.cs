@@ -14,9 +14,10 @@ namespace LTrinhWebNhom3.Models
         public string Description { get; set; }
         public string? ImageUrl { get; set; }
         public List<PortfolioImage>? Images { get; set; }
-        public int TagID { get; set; }
+        public int TagID { get; set; }  
         public Tag? Tag { get; set; }
-        public List<Project> projects { get; set; }
+        public int ProjectID { get; set; }
+        public List<Project>? projects { get; set; }
     }
 
    

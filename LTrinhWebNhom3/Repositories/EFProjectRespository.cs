@@ -16,7 +16,7 @@ namespace LTrinhWebNhom3.Repositories
         public async Task<IEnumerable<Project>> GetAllAsync()
         {
             return await _context.Projects.ToListAsync();
-          
+
         }
 
 
@@ -24,43 +24,43 @@ namespace LTrinhWebNhom3.Repositories
         {
             // return await _context.Products.FindAsync(id);
             // lấy thông tin kèm theo category
-            return await _context.Projects.Include(p => p.Tag).FirstOrDefaultAsync(p => p.Id == id);
+            return await _context.Projects.FirstOrDefaultAsync(p => p.Id == id);
         }
 
-        public async Task AddAsync(Portfolio portfolio)
+        public async Task AddAsync(Project project)
         {
-            _context.Portfolios.Add(portfolio);
+            _context.Projects.Add(project);
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(Portfolio portfolio)
+        public async Task UpdateAsync(Project project)
         {
-            _context.Portfolios.Update(portfolio);
+            _context.Projects.Update(project);
             await _context.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(int id)
         {
-            var portfolio = await _context.Portfolios.FindAsync(id);
-            _context.Portfolios.Remove(portfolio);
+            var project = await _context.Projects.FindAsync(id);
+            _context.Projects.Remove(project);
             await _context.SaveChangesAsync();
         }
-        public async Task AddPortfolioAsync(Portfolio portfolio)
+        public async Task AddProjectAsync(Project project)
         {
-            _context.Portfolios.Add(portfolio);
+            _context.Projects.Add(project);
             await _context.SaveChangesAsync();
         }
-        public async Task UpdatePortfolioAsync(Portfolio portfolio)
+        public async Task UpdateProjectAsync(Project project)
         {
-            _context.Entry(portfolio).State = EntityState.Modified;
+            _context.Entry(project).State = EntityState.Modified;
             await _context.SaveChangesAsync();
         }
-        public async Task DeletePortfolioAsync(int id)
+        public async Task DeleteProjectAsync(int id)
         {
-            var portfolio = await _context.Portfolios.FindAsync(id);
-            if (portfolio != null)
+            var project = await _context.Projects.FindAsync(id);
+            if (project != null)
             {
-                _context.Portfolios.Remove(portfolio);
+                _context.Projects.Remove(project);
                 await _context.SaveChangesAsync();
             }
         }
