@@ -7,7 +7,7 @@ using Model.Repositories;
 namespace LTrinhWebNhom3.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = SD.Role_Admin)]
+    [Authorize(Roles = "Admin")]
     public class ProductController : Controller
     {
         private readonly IPortfolioRepository _portfolioRepository;

@@ -5,7 +5,7 @@
 namespace LTrinhWebNhom3.Migrations
 {
     /// <inheritdoc />
-    public partial class update14 : Migration
+    public partial class update4 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

@@ -26,17 +26,19 @@ namespace LTrinhWebNhom3.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Project",
+                name: "Projects",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ProjectImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ProjectUrl = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Project", x => x.Id);
+                    table.PrimaryKey("PK_Projects", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -75,7 +77,7 @@ namespace LTrinhWebNhom3.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProjectImage",
+                name: "ProjectImages",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -85,11 +87,11 @@ namespace LTrinhWebNhom3.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProjectImage", x => x.Id);
+                    table.PrimaryKey("PK_ProjectImages", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ProjectImage_Project_ProjectId",
+                        name: "FK_ProjectImages_Projects_ProjectId",
                         column: x => x.ProjectId,
-                        principalTable: "Project",
+                        principalTable: "Projects",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -104,11 +106,17 @@ namespace LTrinhWebNhom3.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TagID = table.Column<int>(type: "int", nullable: false),
-                    PersonalDetailId = table.Column<int>(type: "int", nullable: false)
+                    ProjectID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Portfolios", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Portfolios_Projects_ProjectID",
+                        column: x => x.ProjectID,
+                        principalTable: "Projects",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Portfolios_Tags_TagID",
                         column: x => x.TagID,
@@ -133,30 +141,6 @@ namespace LTrinhWebNhom3.Migrations
                         name: "FK_PortfolioImages_Portfolios_PortfolioID",
                         column: x => x.PortfolioID,
                         principalTable: "Portfolios",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "PortfolioProject",
-                columns: table => new
-                {
-                    PortfoliosId = table.Column<int>(type: "int", nullable: false),
-                    ProjectsId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PortfolioProject", x => new { x.PortfoliosId, x.ProjectsId });
-                    table.ForeignKey(
-                        name: "FK_PortfolioProject_Portfolios_PortfoliosId",
-                        column: x => x.PortfoliosId,
-                        principalTable: "Portfolios",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_PortfolioProject_Project_ProjectsId",
-                        column: x => x.ProjectsId,
-                        principalTable: "Project",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -347,9 +331,9 @@ namespace LTrinhWebNhom3.Migrations
                 column: "PortfolioID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PortfolioProject_ProjectsId",
-                table: "PortfolioProject",
-                column: "ProjectsId");
+                name: "IX_Portfolios_ProjectID",
+                table: "Portfolios",
+                column: "ProjectID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Portfolios_TagID",
@@ -357,8 +341,8 @@ namespace LTrinhWebNhom3.Migrations
                 column: "TagID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProjectImage_ProjectId",
-                table: "ProjectImage",
+                name: "IX_ProjectImages_ProjectId",
+                table: "ProjectImages",
                 column: "ProjectId");
 
             migrationBuilder.AddForeignKey(
@@ -419,16 +403,10 @@ namespace LTrinhWebNhom3.Migrations
                 name: "PortfolioImages");
 
             migrationBuilder.DropTable(
-                name: "PortfolioProject");
-
-            migrationBuilder.DropTable(
-                name: "ProjectImage");
+                name: "ProjectImages");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
-
-            migrationBuilder.DropTable(
-                name: "Project");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
@@ -438,6 +416,9 @@ namespace LTrinhWebNhom3.Migrations
 
             migrationBuilder.DropTable(
                 name: "Portfolios");
+
+            migrationBuilder.DropTable(
+                name: "Projects");
 
             migrationBuilder.DropTable(
                 name: "Tags");

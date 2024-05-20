@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LTrinhWebNhom3.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240520074512_update8")]
-    partial class update8
+    [Migration("20240520102723_update1")]
+    partial class update1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -206,9 +206,6 @@ namespace LTrinhWebNhom3.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -223,9 +220,6 @@ namespace LTrinhWebNhom3.Migrations
                     b.Property<string>("ProjectUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -251,7 +245,7 @@ namespace LTrinhWebNhom3.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("ProjectImage");
+                    b.ToTable("ProjectImages");
                 });
 
             modelBuilder.Entity("LTrinhWebNhom3.Models.Tag", b =>
@@ -437,7 +431,7 @@ namespace LTrinhWebNhom3.Migrations
             modelBuilder.Entity("LTrinhWebNhom3.Models.Portfolio", b =>
                 {
                     b.HasOne("LTrinhWebNhom3.Models.Project", "projects")
-                        .WithMany("Portfolios")
+                        .WithMany("portfolios")
                         .HasForeignKey("ProjectID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -540,7 +534,7 @@ namespace LTrinhWebNhom3.Migrations
                 {
                     b.Navigation("Images");
 
-                    b.Navigation("Portfolios");
+                    b.Navigation("portfolios");
                 });
 
             modelBuilder.Entity("LTrinhWebNhom3.Models.Tag", b =>

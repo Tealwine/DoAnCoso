@@ -38,7 +38,6 @@ builder.Services.AddScoped<IPortfolioRepository, EFPortfolioRepository >();
 builder.Services.AddScoped<IProjectRepository, EFProjectRespository>();
 builder.Services.AddScoped<ITagRepository, EFTagRepository>();
 builder.Services.AddScoped<IPortfolioImageRepository, EFPortfolioImageRepository>();
-builder.Services.AddScoped <ICommentRepository, EFCommentRepository>();
 builder.Services.AddScoped<IApplicationUserRepository, EFApplicationUserRepository>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();

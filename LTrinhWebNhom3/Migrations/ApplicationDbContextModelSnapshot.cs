@@ -203,26 +203,17 @@ namespace LTrinhWebNhom3.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProjectImageUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProjectUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -248,7 +239,7 @@ namespace LTrinhWebNhom3.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("ProjectImage");
+                    b.ToTable("ProjectImages");
                 });
 
             modelBuilder.Entity("LTrinhWebNhom3.Models.Tag", b =>

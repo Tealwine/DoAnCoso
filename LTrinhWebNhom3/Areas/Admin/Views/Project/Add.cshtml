@@ -1,15 +1,15 @@
 ﻿@model LTrinhWebNhom3.Models.Project
 
 @{
-    ViewData["Title"] = "Add Portfolio";
+    ViewData["Title"] = "Add Project";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Add Portfolio</h2>
+<h2>Add Project</h2>
 
-<form asp-action="Add">
+<form asp-action="Add" enctype="multipart/form-data">
     <div class="form-horizontal">
-        <h4>Portfolio</h4>
+        <h4>Project</h4>
         <hr />
         <div class="form-group">
             <label asp-for="Name" class="col-md-2 control-label"></label>
@@ -25,21 +25,29 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
         </div>
-      
         <div class="form-group">
-            <label asp-for="ProjectImageUrl">Product Image</label>
-            <input type="file" asp-for="ProjectImageUrl" class="form-control" onchange="previewImage(event)" />
-            <img id="imagePreview" src="" alt="Preview" style="max-width: 200px; height: auto; margin-top: 10px;" />
+            <label asp-for="ProjectImageUrl">Image</label>
+            <input type="file" asp-for="ProjectImageUrl" class="form-control" />
         </div>
-        <script>
-            function previewImage(event) {
-                var reader = new FileReader();
-                reader.onload = function () {
-                    var output = document.getElementById('imagePreview');
-                    output.src = reader.result;
-                };
-                reader.readAsDataURL(event.target.files[0]);
-            }
-        </script>
+        <div class="form-group">
+            <label asp-for="ProjectUrl" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ProjectUrl" class="form-control" />
+                <span asp-validation-for="ProjectUrl" class="text-danger"></span>
+            </div>
+        </div>
+       
         <button type="submit" class="btn btn-primary mt-3 px-3">Add</button>
+    </div>
 </form>
+
+<script>
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function () {
+            var output = document.getElementById('imagePreview');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>

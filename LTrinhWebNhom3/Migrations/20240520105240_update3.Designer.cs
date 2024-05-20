@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LTrinhWebNhom3.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240519115025_update4")]
-    partial class update4
+    [Migration("20240520105240_update3")]
+    partial class update3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -169,6 +169,8 @@ namespace LTrinhWebNhom3.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ProjectID");
+
                     b.HasIndex("TagID");
 
                     b.ToTable("Portfolios");
@@ -204,30 +206,19 @@ namespace LTrinhWebNhom3.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PortfolioId")
-                        .HasColumnType("int");
+                    b.Property<string>("ProjectImageUrl")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProjectUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("PortfolioId");
 
                     b.ToTable("Projects");
                 });
@@ -251,7 +242,7 @@ namespace LTrinhWebNhom3.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("ProjectImage");
+                    b.ToTable("ProjectImages");
                 });
 
             modelBuilder.Entity("LTrinhWebNhom3.Models.Tag", b =>
@@ -436,6 +427,12 @@ namespace LTrinhWebNhom3.Migrations
 
             modelBuilder.Entity("LTrinhWebNhom3.Models.Portfolio", b =>
                 {
+                    b.HasOne("LTrinhWebNhom3.Models.Project", "projects")
+                        .WithMany("portfolios")
+                        .HasForeignKey("ProjectID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("LTrinhWebNhom3.Models.Tag", "Tag")
                         .WithMany("portfolios")
                         .HasForeignKey("TagID")
@@ -443,6 +440,8 @@ namespace LTrinhWebNhom3.Migrations
                         .IsRequired();
 
                     b.Navigation("Tag");
+
+                    b.Navigation("projects");
                 });
 
             modelBuilder.Entity("LTrinhWebNhom3.Models.PortfolioImage", b =>
@@ -454,13 +453,6 @@ namespace LTrinhWebNhom3.Migrations
                         .IsRequired();
 
                     b.Navigation("Portfolio");
-                });
-
-            modelBuilder.Entity("LTrinhWebNhom3.Models.Project", b =>
-                {
-                    b.HasOne("LTrinhWebNhom3.Models.Portfolio", null)
-                        .WithMany("projects")
-                        .HasForeignKey("PortfolioId");
                 });
 
             modelBuilder.Entity("LTrinhWebNhom3.Models.ProjectImage", b =>
@@ -533,13 +525,13 @@ namespace LTrinhWebNhom3.Migrations
             modelBuilder.Entity("LTrinhWebNhom3.Models.Portfolio", b =>
                 {
                     b.Navigation("Images");
-
-                    b.Navigation("projects");
                 });
 
             modelBuilder.Entity("LTrinhWebNhom3.Models.Project", b =>
                 {
                     b.Navigation("Images");
+
+                    b.Navigation("portfolios");
                 });
 
             modelBuilder.Entity("LTrinhWebNhom3.Models.Tag", b =>

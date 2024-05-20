@@ -8,8 +8,5 @@ namespace LTrinhWebNhom3.Repositories
         Task AddAsync(Project project);
         Task UpdateAsync(Project project);
         Task DeleteAsync(int id);
-        Task AddProjectAsync(Project project);
-        Task UpdateProjectAsync(Project project);
-        Task DeleteProjectAsync(int id);
     }
 }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LTrinhWebNhom3.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240520074603_update9")]
-    partial class update9
+    [Migration("20240520105906_update4")]
+    partial class update4
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -169,8 +169,7 @@ namespace LTrinhWebNhom3.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProjectID")
-                        .IsUnique();
+                    b.HasIndex("ProjectID");
 
                     b.HasIndex("TagID");
 
@@ -207,26 +206,17 @@ namespace LTrinhWebNhom3.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProjectImageUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProjectUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -252,7 +242,7 @@ namespace LTrinhWebNhom3.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("ProjectImage");
+                    b.ToTable("ProjectImages");
                 });
 
             modelBuilder.Entity("LTrinhWebNhom3.Models.Tag", b =>
@@ -438,8 +428,8 @@ namespace LTrinhWebNhom3.Migrations
             modelBuilder.Entity("LTrinhWebNhom3.Models.Portfolio", b =>
                 {
                     b.HasOne("LTrinhWebNhom3.Models.Project", "projects")
-                        .WithOne("Portfolios")
-                        .HasForeignKey("LTrinhWebNhom3.Models.Portfolio", "ProjectID")
+                        .WithMany("portfolios")
+                        .HasForeignKey("ProjectID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -541,8 +531,7 @@ namespace LTrinhWebNhom3.Migrations
                 {
                     b.Navigation("Images");
 
-                    b.Navigation("Portfolios")
-                        .IsRequired();
+                    b.Navigation("portfolios");
                 });
 
             modelBuilder.Entity("LTrinhWebNhom3.Models.Tag", b =>
