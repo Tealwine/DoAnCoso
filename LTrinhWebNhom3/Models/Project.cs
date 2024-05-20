@@ -8,9 +8,9 @@ namespace LTrinhWebNhom3.Models
         public int Id { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
-        public string? ProjectImageUrl { get; set; }
+        
         public string? ProjectUrl { get; set; }
- 
+        public string? ProjectImageUrl { get; set; }
         public List<ProjectImage>? Images { get; set; }
         public List<Portfolio>? portfolios { get; set; }
 

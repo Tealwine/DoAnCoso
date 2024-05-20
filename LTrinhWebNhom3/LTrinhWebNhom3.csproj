@@ -26,17 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Areas\Admin\Views\AspNetUser\Add.cshtml" />
-    <None Include="Areas\Admin\Views\AspNetUser\Delete.cshtml" />
-    <None Include="Areas\Admin\Views\AspNetUser\DeleteConfirmed.cshtml" />
-    <None Include="Areas\Admin\Views\AspNetUser\Display.cshtml" />
-    <None Include="Areas\Admin\Views\AspNetUser\Index.cshtml" />
-    <None Include="Areas\Admin\Views\AspNetUser\Update.cshtml" />
-    <None Include="Areas\Admin\Views\Comment\Add.cshtml" />
-    <None Include="Areas\Admin\Views\Comment\Delete.cshtml" />
-    <None Include="Areas\Admin\Views\Comment\Display.cshtml" />
-    <None Include="Areas\Admin\Views\Comment\Index.cshtml" />
-    <None Include="Areas\Admin\Views\Comment\Update.cshtml" />
     <None Include="Areas\Admin\Views\PortfolioImage\Delete.cshtml" />
     <None Include="Areas\Admin\Views\PortfolioImage\Display.cshtml" />
     <None Include="Areas\Admin\Views\PortfolioImage\Index.cshtml" />
