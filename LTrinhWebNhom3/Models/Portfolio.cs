@@ -17,7 +17,7 @@ namespace LTrinhWebNhom3.Models
         public int TagID { get; set; }  
         public Tag? Tag { get; set; }
         public int ProjectID { get; set; }
-        public List<Project>? projects { get; set; }
+        public Project projects { get; set; }
     }
 
    

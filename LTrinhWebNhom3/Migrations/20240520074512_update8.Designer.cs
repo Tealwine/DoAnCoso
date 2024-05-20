@@ -4,6 +4,7 @@ using LTrinhWebNhom3.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LTrinhWebNhom3.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240520074512_update8")]
+    partial class update8
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -434,7 +437,7 @@ namespace LTrinhWebNhom3.Migrations
             modelBuilder.Entity("LTrinhWebNhom3.Models.Portfolio", b =>
                 {
                     b.HasOne("LTrinhWebNhom3.Models.Project", "projects")
-                        .WithMany("portfolios")
+                        .WithMany("Portfolios")
                         .HasForeignKey("ProjectID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -537,7 +540,7 @@ namespace LTrinhWebNhom3.Migrations
                 {
                     b.Navigation("Images");
 
-                    b.Navigation("portfolios");
+                    b.Navigation("Portfolios");
                 });
 
             modelBuilder.Entity("LTrinhWebNhom3.Models.Tag", b =>

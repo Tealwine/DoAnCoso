@@ -1,0 +1,48 @@
+﻿@model LTrinhWebNhom3.Models.Project
+
+@{
+    ViewData["Title"] = "Add Portfolio";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Portfolio</h2>
+
+<form asp-action="Add">
+    <div class="form-horizontal">
+        <h4>Portfolio</h4>
+        <hr />
+        <div class="form-group">
+            <label asp-for="Name" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="TagID">Tag</label>
+            <select asp-for="TagID" asp-items="@ViewBag.Tags" class="form-control"></select>
+        </div>
+        <div class="form-group">
+            <label asp-for="ImageUrl">Product Image</label>
+            <input type="file" asp-for="ImageUrl" class="form-control" onchange="previewImage(event)" />
+            <img id="imagePreview" src="" alt="Preview" style="max-width: 200px; height: auto; margin-top: 10px;" />
+        </div>
+        <script>
+            function previewImage(event) {
+                var reader = new FileReader();
+                reader.onload = function () {
+                    var output = document.getElementById('imagePreview');
+                    output.src = reader.result;
+                };
+                reader.readAsDataURL(event.target.files[0]);
+            }
+        </script>
+        <button type="submit" class="btn btn-primary mt-3 px-3">Add</button>
+</form>
