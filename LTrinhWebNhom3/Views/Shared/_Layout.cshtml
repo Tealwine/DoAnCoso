@@ -50,8 +50,8 @@
         }
 
         footer {
-            height: 16.66666667vh; 
-
+            height: 16.66666667vh;
+        }
     </style>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -69,15 +69,15 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-primary" href="/Admin/Portfolio">List Portfolio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-danger" href="/Admin/Portfolio/Add">Add Portfolio</a>
-                        </li>
+
                         @if (User.IsInRole(SD.Role_Admin))
                         {
 
+
+
+                            <li class="nav-item">
+                                <a class="nav-link text-primary" href="/Admin/Portfolio">List Portfolio</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link text-primary" href="/Admin/Tag">List Tag</a>
                             </li>
@@ -87,20 +87,25 @@
                             <li class="nav-item">
                                 <a class="nav-link text-primary" href="/Admin/AspNetUser">List account</a>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-danger" href="/Admin/Portfolio/Add">Add Portfolio</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link text-danger" href="/Admin/Tag/Add">Add Tag</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-danger" href="/Areas/Admin/Views/Project/Index.cshtml">Add Project</a>
+                                <a class="nav-link text-danger" href="/Admin/Views/Project/Add">Add Project</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-danger" href="/Admin/Project">List Project</a>
+                                <a class="nav-link text-danger" href="/Admin/Project/Index">List Project</a>
                             </li>
+
 
                         }
                     </ul>
                     <partial name="_LoginPartial" />
-                    
+
                 </div>
             </div>
         </nav>

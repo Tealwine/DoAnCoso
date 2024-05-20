@@ -1,7 +1,7 @@
-﻿@model IEnumerable<LTrinhWebNhom3.Models.Project>
+﻿@model  IEnumerable<LTrinhWebNhom3.Models.Project>
 
 
-<h2>Project</h2>
+<h2>Portfolio</h2>
 
 
 <div class="container mt-4">
@@ -10,6 +10,8 @@
         <div class="col-md-9">
             <!-- Hiển thị sản phẩm bằng dạng dòng sản phẩm sử dụng Bootstrap Row và Col -->
             <div class="row row-cols-1 row-cols-md-3 g-4">
+
+
                 @foreach (var project in Model)
                 {
                     <!-- Sản phẩm -->
@@ -19,6 +21,10 @@
                             <div class="card-body">
                                 <h5 class="card-title">Name: <strong>@project.Name</strong></h5>
                                 <p class="card-text">Des: <strong>@project.Description</strong></p>
+                        
+                               
+
+
                                 <a href="/Admin/Project/Display/@(project.Id)" class="btn btn-warning">View</a>
                                 <a href="/Admin/Project/Update/@(project.Id)" class="btn btn-success">Update</a>
                                 <a href="/Admin/Project/Delete/@(project.Id)" class="btn btn-dark">Delete</a>

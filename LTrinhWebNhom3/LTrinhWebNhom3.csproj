@@ -8,30 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Areas\Admin\Views\AspNetUser\Add.cshtml" />
-    <Content Remove="Areas\Admin\Views\AspNetUser\Delete.cshtml" />
-    <Content Remove="Areas\Admin\Views\AspNetUser\DeleteConfirmed.cshtml" />
-    <Content Remove="Areas\Admin\Views\AspNetUser\Display.cshtml" />
-    <Content Remove="Areas\Admin\Views\AspNetUser\Index.cshtml" />
-    <Content Remove="Areas\Admin\Views\AspNetUser\Update.cshtml" />
-    <Content Remove="Areas\Admin\Views\Comment\Add.cshtml" />
-    <Content Remove="Areas\Admin\Views\Comment\Delete.cshtml" />
-    <Content Remove="Areas\Admin\Views\Comment\Display.cshtml" />
-    <Content Remove="Areas\Admin\Views\Comment\Index.cshtml" />
-    <Content Remove="Areas\Admin\Views\Comment\Update.cshtml" />
-    <Content Remove="Areas\Admin\Views\PortfolioImage\Add.cshtml" />
-    <Content Remove="Areas\Admin\Views\PortfolioImage\Delete.cshtml" />
-    <Content Remove="Areas\Admin\Views\PortfolioImage\Display.cshtml" />
-    <Content Remove="Areas\Admin\Views\PortfolioImage\Index.cshtml" />
-    <Content Remove="Areas\Admin\Views\PortfolioImage\Update.cshtml" />
-    <Content Remove="Areas\Admin\Views\Project\Add.cshtml" />
-    <Content Remove="Areas\Admin\Views\Project\Delete.cshtml" />
-    <Content Remove="Areas\Admin\Views\Project\Display.cshtml" />
-    <Content Remove="Areas\Admin\Views\Project\Index.cshtml" />
-    <Content Remove="Areas\Admin\Views\Project\Update.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.4" />
@@ -51,8 +27,8 @@
 
   <ItemGroup>
     <None Include="Areas\Admin\Views\AspNetUser\Add.cshtml" />
-    <None Include="Areas\Admin\Views\AspNetUser\DeleteConfirmed.cshtml" />
     <None Include="Areas\Admin\Views\AspNetUser\Delete.cshtml" />
+    <None Include="Areas\Admin\Views\AspNetUser\DeleteConfirmed.cshtml" />
     <None Include="Areas\Admin\Views\AspNetUser\Display.cshtml" />
     <None Include="Areas\Admin\Views\AspNetUser\Index.cshtml" />
     <None Include="Areas\Admin\Views\AspNetUser\Update.cshtml" />
@@ -75,6 +51,10 @@
     <None Include="Areas\Admin\Views\Project\Display.cshtml" />
     <None Include="Areas\Admin\Views\Project\Index.cshtml" />
     <None Include="Areas\Admin\Views\Project\Update.cshtml" />
+    <None Include="Areas\Admin\Views\Shared\Error.cshtml" />
+    <None Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <None Include="Areas\Admin\Views\Shared\_LoginPartial.cshtml" />
+    <None Include="Areas\Admin\Views\Shared\_ValidationScriptsPartial.cshtml" />
     <None Include="Areas\Admin\Views\Tag\Add.cshtml" />
     <None Include="Areas\Admin\Views\Tag\Delete.cshtml" />
     <None Include="Areas\Admin\Views\Tag\Display.cshtml" />
@@ -86,7 +66,6 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\User\" />
   </ItemGroup>
 
 </Project>
