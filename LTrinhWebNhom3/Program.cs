@@ -33,8 +33,9 @@ builder.Services.ConfigureApplicationCookie(options =>
 });
 
 builder.Services.AddRazorPages();
-
+builder.Services.AddScoped<IProjectImageRespository, EFProjectImageRespository>();
 builder.Services.AddScoped<IPortfolioRepository, EFPortfolioRepository >();
+builder.Services.AddScoped<IProjectRepository, EFProjectRespository>();
 builder.Services.AddScoped<ITagRepository, EFTagRepository>();
 builder.Services.AddScoped<IPortfolioImageRepository, EFPortfolioImageRepository>();
 builder.Services.AddScoped <ICommentRepository, EFCommentRepository>();

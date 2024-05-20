@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace LTrinhWebNhom3.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = SD.Role_Admin)]
+    [Authorize(Roles = "Admin")]
     public class ProjectController : Controller
     {
         private readonly IProjectRepository _projectRepository;
@@ -23,6 +23,8 @@ namespace LTrinhWebNhom3.Areas.Admin.Controllers
             return View(project);
         }
 
+   
+        // Hiển thị form thêm sản phẩm mới
         public async Task<IActionResult> Add()
         {
             return View();

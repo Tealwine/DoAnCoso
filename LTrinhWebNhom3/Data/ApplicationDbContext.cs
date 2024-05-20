@@ -18,9 +18,9 @@ namespace LTrinhWebNhom3.Data
         public DbSet<Comment> Comments { get; set; }
         public DbSet<PortfolioImage> PortfolioImages { get; set; }
         public DbSet<Project> Projects { get; set; }
-     
-  
-        
+        public DbSet<ProjectImage> ProjectImages { get; set; }
+
+
 
 
 
